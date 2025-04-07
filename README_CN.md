@@ -21,7 +21,16 @@ conda activate simple-agent
 
 3. 下载依赖
 ```
-pip install -r 
+pip install -r requirements.txt
+```
+
+4. 配置大模型以及网页搜索的接口参数
+在./config/config.env中输入相应的参数，包括模型名、访问地址、api-key以及网页搜索的接口以及api-key。
+
+5. 启动AI智能体
+```
+cd agent/
+sh run_agent.sh
 ```
 
 
