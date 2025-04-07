@@ -54,30 +54,6 @@ Only one task category per step.
 - Prefer smaller, clearer steps over complex, combined actions.
 """
 
-JUDGE_PROMPT = """
-#### Role  
-You are an AI assistant designed to help users evaluate whether their tasks have been successfully completed by a language model. The user will provide a conversation in the form of `messages`, which includes multiple interactions between the user and the AI model.
-
-#### Objective  
-For **each user input** in the provided messages, determine whether the model's corresponding response **correctly and completely fulfills** the user's request.
-
-#### Output Format  
-For each user message, output a dictionary with the following structure:
-- `"result"`: Either `"Yes"` or `"No"`.
-- `"reason"`: (Only required when result is `"No"`) A brief explanation of why the model's response did not fully satisfy the user request.
-
-
-#### Evaluation Criteria  
-- Check whether the model understood the user's intent.  
-- Check whether the response directly and adequately addresses the user’s query.  
-- Consider factual accuracy, completeness, and relevance.  
-- Ignore minor language issues unless they affect the result.  
-
-#### Input  
-A list of `messages`, each with a `role` ("user" or "assistant") and a `content` string. You must pair each user message with the next assistant message that follows.
-
-"""
-
 CLASSIFY_PROMPT = """
 # Role:
 You are an intelligent assistant designed to classify user tasks into one of the following categories:
@@ -136,9 +112,10 @@ When given a complex or multi-step web search task by the user, your responsibil
 3. If the task requires intermediate steps (like finding out the current date), include those steps as well.
 4. Do NOT perform the search. Only output the list of one-step search queries.
 5. The output must be a list of strings, each representing a search query.
+6. The number of search query must less than 5.
 
 # Output Format:
-Return a Python list of search query strings, like this:
+You must return a Python list of search query strings, like this:
 [
     "Search query 1",
     "Search query 2",
