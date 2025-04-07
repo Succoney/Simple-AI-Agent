@@ -26,6 +26,7 @@ conda activate simple-agent
 pip install -r requirements.txt
 
 ##如果安装失败的话，可以使用如下指令
+
 python -m pip install -r requirements.txt
 ```
 
