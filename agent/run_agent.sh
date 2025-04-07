@@ -1,0 +1,1 @@
+python agent.py mcp_sever/web_search.py mcp_sever/resource_get.py mcp_sever/document_generate.py
