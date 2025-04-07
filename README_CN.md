@@ -24,6 +24,9 @@ conda activate simple-agent
 3. 下载依赖
 ```
 pip install -r requirements.txt
+
+##如果安装失败的话，可以使用如下指令
+python -m pip install -r requirements.txt
 ```
 
 4. 配置大模型以及网页搜索的接口参数
