@@ -41,6 +41,4 @@ sh run_agent.sh
 
 
 ## 功能演示
-<iframe src="https://www.bilibili.com/video/BV1d5dJY8E4n?t=10.3" 
-scrolling="no" border="0" frameborder="no" framespacing="0" 
-allowfullscreen="true" width="560" height="315"> </iframe>
+[![演示视频](https://img.youtube.com/vi/VIDEO_ID/0.jpg)]([https://www.youtube.com/watch?v=VIDEO_ID](https://www.bilibili.com/video/BV1d5dJY8E4n?t=10.3))
