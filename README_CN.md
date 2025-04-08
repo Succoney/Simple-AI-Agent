@@ -42,3 +42,8 @@ sh run_agent.sh
 
 ## 功能演示
 [![演示视频](/img/video.webp)](https://www.bilibili.com/video/BV1d5dJY8E4n?t=10.3)
+AI Agent的执行逻辑：
+
+1. 用户输入一个问题。
+2. 大模型分析问题并将问题按照任务类别进行分别。任务类别包括：网页搜索，上下文总结，对话，文档生成。
+3. 对于网页搜索类别的任务，
