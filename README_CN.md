@@ -41,4 +41,4 @@ sh run_agent.sh
 
 
 ## 功能演示
-[![演示视频](/img/)]([https://www.youtube.com/watch?v=VIDEO_ID](https://www.bilibili.com/video/BV1d5dJY8E4n?t=10.3))
+[![演示视频](/img/video.webp)]([https://www.youtube.com/watch?v=VIDEO_ID](https://www.bilibili.com/video/BV1d5dJY8E4n?t=10.3))
