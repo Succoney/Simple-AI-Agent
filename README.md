@@ -1,6 +1,6 @@
 # Simple AI Agent
 ## Architecture
-![Architecture](/img/Architecture.webp)
+![Architecture](/img/Architecture.png)
 
 ## Features
 
