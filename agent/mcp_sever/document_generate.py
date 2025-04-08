@@ -8,18 +8,19 @@ mcp = FastMCP("document-generate")
 
 # Add an addition tool
 @mcp.tool()
-async def markdown_generate(content: str, doc_name: str, save_path: str = "../doc/") -> str:
+async def markdown_generate(content: str, doc_name: str) -> str:
     """
     将文本以markdown形式保存在本地
 
     Args:
         content: 文件内容
         doc_name: 文件名字
-        save_path: 保存路径，默认为项目的doc文件夹
 
     Returns:
         保存路径+文件文件名
     """
+
+    save_path = "../doc/"
 
     if doc_name == "":
         return "without name"

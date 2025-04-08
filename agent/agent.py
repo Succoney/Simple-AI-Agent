@@ -111,28 +111,24 @@ When given a complex or multi-step web search task by the user, your responsibil
 2. If the original query includes general terms like "next week" or "tomorrow", you must first convert them into explicit dates before generating the search queries.
 3. If the task requires intermediate steps (like finding out the current date), include those steps as well.
 4. Do NOT perform the search. Only output the list of one-step search queries.
-5. The output must be a list of strings, each representing a search query.
-6. The number of search query must less than 5.
+5. The total number of search queries must be **no more than 5**.
 
 # Output Format:
-You must return a Python list of search query strings, like this:
-[
-    "Search query 1",
-    "Search query 2",
-    ...
-]
+Return the result in the following format:
+##query1: Search query 1  
+##query2: Search query 2  
+...  
+(up to a maximum of ##query5##)
 
 # Example Input:
 "Find out the weather forecast in Suzhou for the next two weeks."
 
 # Example Output (assuming today is April 6):
-[
-    "What is today's date?",
-    "Suzhou weather forecast from April 6 to April 19"
-]
+##query1: What is today's date?  
+##query2: Suzhou weather forecast from April 6 to April 19
 
 # Reminder:
-Do not combine multiple intents in one search query. Each item in the list must correspond to a single, atomic use of the web_search function.
+Do not combine multiple intents in one search query. Each item must be suitable for a single, atomic call to `web_search`.
 """
 
 
@@ -241,8 +237,6 @@ class Agent:
             }
         ]
 
-        pattern = r'\[\s*.*?\s*\]'
-
         while True:
             try:
                 response = self.client.chat.completions.create(
@@ -252,9 +246,7 @@ class Agent:
 
                 print(response.choices[0].message.content)
 
-                match = re.search(pattern, response.choices[0].message.content, re.DOTALL)
-
-                search_tasks = json.loads(match.group(0))
+                search_tasks = response.choices[0].message.content.split("##")[1:]
 
                 break
             except Exception as e:
@@ -293,7 +285,9 @@ class Agent:
 
     async def document_act(self, step : str) -> bool:
 
-        self.messages[-1]["content"] = "Generate a file and save it locally. " + self.messages[-1]["content"]
+        self.messages[-1]["content"] = "At this step you must **create a document and save it** ." + self.messages[-1]["content"]
+
+        print(self.messages[-1])
 
         response = await self.mcp_client.process_query(self.messages)
 
